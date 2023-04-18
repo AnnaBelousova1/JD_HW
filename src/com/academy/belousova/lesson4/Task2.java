@@ -7,13 +7,6 @@ package com.academy.belousova.lesson4;
 import java.util.Scanner;
 
 public class Task2 {
-    public static int maxNum(int a, int b) {
-        if (a % b == 0) {
-            return b;
-        } else
-            return maxNum(b, a % b);
-    }
-
     public static void main(String[] args) {
         System.out.println("Введите первое число: ");
         Scanner sc1 = new Scanner(System.in);
@@ -23,6 +16,14 @@ public class Task2 {
         Scanner sc2 = new Scanner(System.in);
         int num2 = sc2.nextInt();
 
+        int t = maxNum(num1, num2);
+        System.out.println("Наибольший общий делитель: " + t);
+    }
 
+    public static int maxNum(int a, int b) {
+        if (a % b == 0) {
+            return b;
+        } else
+            return maxNum(b, a % b);
     }
 }
