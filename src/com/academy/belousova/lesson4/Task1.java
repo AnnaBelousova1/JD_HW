@@ -48,9 +48,9 @@ public class Task1 {
         Scanner sc = new Scanner(System.in);
 
         System.out.println();
-        System.out.println(" Табулирование функции у = х^2 + 1");
-        System.out.println("    на отрезке [A, B] с шагом Н");
-        System.out.println("__________________________________");
+        System.out.println("        Табулирование функции y        ");
+        System.out.println(" параметр цикла и результат вычисления ");
+        System.out.println("_______________________________________");
 
 
 
