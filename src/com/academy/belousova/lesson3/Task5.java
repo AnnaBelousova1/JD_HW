@@ -23,7 +23,7 @@ public class Task5 {
         printMin();
     }
 
-    public static void printMax() {
+    public static int printMax() {
         int[] array = {9, 10, 6, 7, 2, 5};
         System.out.println("Вывод массива на экран: ");
         for (int i = 0; i < array.length; i++) {
@@ -39,8 +39,9 @@ public class Task5 {
                 maxNum = array[i];
         }
         System.out.println("Максимальное значение из массива: " + maxNum);
-        System.out.println();
+        return 0;
     }
+
 
     public static void printMin() {
         int[] array = {99, 1, 68, 9, 2, 6};

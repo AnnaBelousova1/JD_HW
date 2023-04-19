@@ -13,7 +13,7 @@ public class Task7 {
                 {7, 4, 4, 5},
                 {6, 7, 4, 0},
         };
-        int max = 9;
+        int max = 0;
         int index = 0;
 
         for (int i = 0; i < arr.length; i++) {

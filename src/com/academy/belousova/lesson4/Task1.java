@@ -1,6 +1,5 @@
 package com.academy.belousova.lesson4;
 
-import java.util.Scanner;
 
 public class Task1 {
     public static void main(String[] args) {
@@ -45,15 +44,20 @@ public class Task1 {
     }
 
     public static void expression4() {
-        Scanner sc = new Scanner(System.in);
+        double a, f;
+        double x = 12.1;
 
         System.out.println();
         System.out.println("        Табулирование функции y        ");
         System.out.println(" параметр цикла и результат вычисления ");
         System.out.println("_______________________________________");
 
+        for (a = -5; a <= 12; a += 3.75) {
+            f = Math.exp(a * x) - 3.45 * a;
 
-
+            System.out.printf("\n f(" + a + ") \t=  " + f);
+        }
     }
 }
+
 
