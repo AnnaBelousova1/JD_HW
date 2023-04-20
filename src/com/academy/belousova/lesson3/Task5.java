@@ -18,12 +18,13 @@ public class Task5 {
      *
      * @param args
      */
+    //javaDoc по классам должен быть над классом. данный javaDoc относится к методу main()
     public static void main(String[] args) {
         printMax();
         printMin();
     }
-
-    public static int printMax() {
+//javaDoc???
+    public static int printMax() { //метод должен ПРИНИМАТЬ массив
         int[] array = {9, 10, 6, 7, 2, 5};
         System.out.println("Вывод массива на экран: ");
         for (int i = 0; i < array.length; i++) {
@@ -39,11 +40,11 @@ public class Task5 {
                 maxNum = array[i];
         }
         System.out.println("Максимальное значение из массива: " + maxNum);
-        return 0;
+        return 0; //зачем мы возвращаем 0 из метода?
     }
 
-
-    public static void printMin() {
+    //javaDoc???
+    public static void printMin() {//метод должен ПРИНИМАТЬ массив
         int[] array = {99, 1, 68, 9, 2, 6};
         System.out.println("Вывод массива на экран: ");
         for (int j : array) {

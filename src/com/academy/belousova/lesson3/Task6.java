@@ -8,7 +8,7 @@ public class Task6 {
     public static void main(String[] args) {
         int[] array = new int [Task5.printMax()];
         for (int number : array) {
-            System.out.println(array);
+            System.out.println(number); // эта строка не выведет массив на экран
         }
     }
 }

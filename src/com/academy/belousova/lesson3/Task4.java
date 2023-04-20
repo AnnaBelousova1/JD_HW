@@ -24,9 +24,9 @@ public class Task4 {
         System.out.println("Введите 10 элементов через пробел: ");
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
-        int[] array = new int[10];
+        int[] array = new int[10]; // почему 10? я хочу сколько угодно, не надо меня ограничивать))
 
-        String[] split = str.split(" ");
+        String[] split = str.split(" "); //подсказка: чему равна длина этого массива?
 
         for (int i = 0; i < split.length; i++) {
             array[i] = Integer.parseInt(split[i]);
@@ -41,7 +41,9 @@ public class Task4 {
 
     public static void printNewArray() {
         int[] array = {9, 7, 5, 68, 23, 0, 1};
-
+/*не надо создавать новый массив, нужно принять в метод
+массив, который ввел пользователь с клавиатуры
+ */
         System.out.println("Вывод нового массива на экран: ");
         for (int j : array) {
             System.out.print(j + " ");
@@ -50,7 +52,7 @@ public class Task4 {
     }
 
     public static void printWithout() {
-        int[] array = {9, 7, 5, 68, 23, 0, 1};
+        int[] array = {9, 7, 5, 68, 23, 0, 1}; //то же самое. передать пользовательский массив в качетсве параметра
 
         System.out.println("Вывод массива на экран без чисел кратных 7: ");
         for (int j : array) {
