@@ -18,6 +18,11 @@ public class Task6 {
         double b = sc.nextDouble();
         double c = sc.nextDouble();
 
+        if (a == 0) {
+            System.out.println("Вы ввели некоректные данные");
+            return;
+        }
+
         // Вычисление дискиминанта по формуле
         double D;
         D = b * b - 4 * a * c;
