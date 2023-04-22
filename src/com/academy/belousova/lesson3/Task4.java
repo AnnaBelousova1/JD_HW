@@ -13,45 +13,33 @@ import java.util.Scanner;
 
 public class Task4 {
     public static void main(String[] args) {
-
-        printArray();
-        printNewArray();
-        printWithout();
+        int[] ints = readArray();
+        printArray(ints);
+        printArray2(ints);
     }
 
-    public static void printArray() {
-
-        System.out.println("Введите 10 элементов через пробел: ");
+    public static int[] readArray() {
+        System.out.println("Введите элементы массива через пробел: ");
         Scanner sc = new Scanner(System.in);
-        String str = sc.nextLine();
-        int[] array = new int[10];
+        String s = sc.nextLine();
+        String[] arrayString = s.trim().split(" ");
 
-        String[] split = str.split(" ");
-
-        for (int i = 0; i < split.length; i++) {
-            array[i] = Integer.parseInt(split[i]);
+        int[] intArray = new int[arrayString.length];
+        for (int i = 0; i < arrayString.length; i++) {
+            intArray[i] = Integer.parseInt(arrayString[i]);
         }
+        return intArray;
+    }
+
+    public static void printArray(int[] array) {
         System.out.println("Вывод массива на экран: ");
-        for (int number : array) {
-            System.out.print(number + " ");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
         }
         System.out.println();
     }
 
-
-    public static void printNewArray() {
-        int[] array = {9, 7, 5, 68, 23, 0, 1};
-
-        System.out.println("Вывод нового массива на экран: ");
-        for (int j : array) {
-            System.out.print(j + " ");
-        }
-        System.out.println();
-    }
-
-    public static void printWithout() {
-        int[] array = {9, 7, 5, 68, 23, 0, 1};
-
+    public static void printArray2(int[] array) {
         System.out.println("Вывод массива на экран без чисел кратных 7: ");
         for (int j : array) {
             if (j % 7 == 0) {

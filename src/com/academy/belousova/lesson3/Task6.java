@@ -6,9 +6,15 @@ package com.academy.belousova.lesson3;
 
 public class Task6 {
     public static void main(String[] args) {
-        int[] array = new int [Task5.printMax()];
-        for (int number : array) {
-            System.out.println(array);
+        int[] ints = Task4.readArray();
+        printArray(ints);
+    }
+
+    public static void printArray(int[] array) {
+        System.out.println("Вывод массива на экран: ");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
         }
+        System.out.println();
     }
 }

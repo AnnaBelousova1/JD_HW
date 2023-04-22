@@ -10,7 +10,6 @@ package com.academy.belousova.lesson3;
 
 public class Task8 {
     public static void main(String[] args) {
-        int[] array = new int[4];
 
         int[] vector = {5, 6, 8, 7};
         System.out.println("Вектор: ");
@@ -35,18 +34,24 @@ public class Task8 {
             System.out.println();
         }
 
+        array(vector, matrix);
+    }
+
+    public static void array(int[] vector, int[][] matrix) {
+        int[] array = new int[vector.length];
+
         System.out.println("Результат перемножения матрицы на вектор: ");
 
-        for (i = 0; i < matrix.length; i++) {
-            if (matrix[0].length != vector.length) {
-                System.out.println("Эти матрицы нельзя перемножить!");
-            }
+        if (matrix[0].length != vector.length) {
+            System.out.println("Эти матрицы нельзя перемножить!");
+        } else if (matrix[0].length == vector.length) {
 
-            for (j = 0; j < matrix[i].length; j++) {
-                array[i] += matrix[i][j] * vector[j];
+            for (int i = 0; i < matrix.length; i++) {
+                for (int j = 0; j < matrix[i].length; j++) {
+                    array[i] += matrix[i][j] * vector[j];
+                }
+                System.out.print(array[i] + " ");
             }
-            System.out.print(array[i] + " ");
         }
     }
 }
-
