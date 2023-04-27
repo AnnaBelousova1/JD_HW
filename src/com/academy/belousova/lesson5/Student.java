@@ -1,10 +1,10 @@
 package com.academy.belousova.lesson5;
 
-public class Student {
+public class Student { // в задании - Объект класса Student должен уметь представиться.
     private int id;
     private String name;
     private String faculty;
-    private int course;
+    private int course; //В университете учатся студенты с 1 по 5 курс.  У меня при создании объекта получилось засетать 10-ый))
     private int group;
     private int year;
 

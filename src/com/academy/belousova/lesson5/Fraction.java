@@ -13,7 +13,7 @@ public class Fraction {
         System.out.println("Дробь: " + x + "/" + y);
     }
 
-    public static Fraction toFraction(int value) {
+    public static Fraction toFraction(int value) { //вобще не вижу необходимости в этом методе. см замечания ниже.
         Fraction temp = new Fraction(0, 0);
         int y = 1;
 
@@ -36,11 +36,11 @@ public class Fraction {
     }
 
     public Fraction mul(int value) {
-        Fraction temp = Fraction.toFraction(value);
-        return new Fraction(this.getX() * temp.getX(), temp.getY() * this.getY());
+        Fraction temp = Fraction.toFraction(value); //зачем??? ты же можешь просто использовать велью
+        return new Fraction(this.getX() * temp.getX(), temp.getY() * this.getY()); //temp.getY() у тебя захаркожен как 1. зачем вобще эта оперция тогда?
     }
 
-    public Fraction div(int value) {
+    public Fraction div(int value) { // те же замечания что и по умножению
         Fraction temp = Fraction.toFraction(value);
         return new Fraction(this.getX() * temp.getY(), this.getY() * temp.getX());
     }
