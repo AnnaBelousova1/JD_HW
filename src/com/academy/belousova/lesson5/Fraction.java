@@ -13,15 +13,6 @@ public class Fraction {
         System.out.println("Дробь: " + x + "/" + y);
     }
 
-    public static Fraction toFraction(int value) {
-        Fraction temp = new Fraction(0, 0);
-        int y = 1;
-
-        temp.setX(value);
-        temp.setY(y);
-        return temp;
-    }
-
     public Fraction sum(Fraction fraction) {
         Fraction temp = new Fraction(0, 0);
 
@@ -36,13 +27,13 @@ public class Fraction {
     }
 
     public Fraction mul(int value) {
-        Fraction temp = Fraction.toFraction(value);
-        return new Fraction(this.getX() * temp.getX(), temp.getY() * this.getY());
+        Fraction temp = new Fraction(0,0);
+        return new Fraction(this.getX() * value, 1 * this.getY());
     }
 
     public Fraction div(int value) {
-        Fraction temp = Fraction.toFraction(value);
-        return new Fraction(this.getX() * temp.getY(), this.getY() * temp.getX());
+        Fraction temp = new Fraction(0,0);
+        return new Fraction(this.getX() * 1 , this.getY() * value);
     }
 
     @Override

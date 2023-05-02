@@ -17,6 +17,10 @@ public class Student {
         this.year = year;
     }
 
+    public void hello() {
+        System.out.println("Привет. Меня зовут - " + getName());
+    }
+
     public int getId() {
         return this.id;
     }
@@ -64,6 +68,4 @@ public class Student {
     public void setYear(int year) {
         this.year = year;
     }
-
-
 }
