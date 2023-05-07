@@ -7,21 +7,19 @@ package com.academy.belousova.lesson3;
 
 public class Task9 {
     public static void main(String[] args) {
-        int[] array = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        String str = "0123456789";
+        int n = 1;
 
-        int i;
-
-        for (i = 0; i < array.length; i++) {
-            System.out.print(array[i]);
-
-
-
-
+        StringBuilder repeat = new StringBuilder();
+        while (n < 5) {
+            for (int i = 0; i < str.length(); i++) {
+                for (int j = 0; j < n; j++) {
+                    repeat.append(str.charAt(i));
+                }
+            }
+            n++;
         }
-
-
+        System.out.println(repeat);
     }
 }
-
-
 
