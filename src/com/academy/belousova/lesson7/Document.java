@@ -10,7 +10,7 @@ public class Document implements Printable, Cloneable, Comparable {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o) { // а hashCode где? :)
         if (this == o) {
             return true;
         }
