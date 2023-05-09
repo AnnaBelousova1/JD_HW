@@ -8,18 +8,9 @@ package com.academy.belousova.lesson3;
 public class Task9 {
     public static void main(String[] args) {
         String str = "0123456789";
-        int n = 1;
 
-        StringBuilder repeat = new StringBuilder();
-        while (n < 5) {
-            for (int i = 0; i < str.length(); i++) {
-                for (int j = 0; j < n; j++) {
-                    repeat.append(str.charAt(i));
-                }
-            }
-            n++;
+        for (int n = 1; n < 5; n++) {
+            System.out.print(str.replaceAll("(.)", "$1".repeat(n)));
         }
-        System.out.println(repeat);
     }
 }
-
