@@ -12,7 +12,11 @@ public class Student {
         this.id = id;
         this.name = name;
         this.faculty = faculty;
-        this.course = course;
+        if (course < 1 || course > 5) {
+            System.out.println("Такого курса не существует!");
+        } else {
+            this.course = course;
+        }
         this.group = group;
         this.year = year;
     }
@@ -50,7 +54,11 @@ public class Student {
     }
 
     public void setCourse(int course) {
-        this.course = course;
+        if (course < 1 || course > 5) {
+            System.out.println("Такого курса не существует!");
+        } else {
+            this.course = course;
+        }
     }
 
     public int getGroup() {

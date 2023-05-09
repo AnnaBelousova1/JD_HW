@@ -27,13 +27,11 @@ public class Fraction {
     }
 
     public Fraction mul(int value) {
-        Fraction temp = new Fraction(0,0);
-        return new Fraction(this.getX() * value, 1 * this.getY());
+        return new Fraction(this.getX() * value, this.getY());
     }
 
     public Fraction div(int value) {
-        Fraction temp = new Fraction(0,0);
-        return new Fraction(this.getX() * 1 , this.getY() * value);
+        return new Fraction(this.getX() , this.getY() * value);
     }
 
     @Override
