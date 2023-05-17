@@ -5,9 +5,9 @@ import com.academy.belousova.lesson7.Document;
 import java.util.Objects;
 
 public class GenCons {
-    private double val;
+    private double val; //сделай его параметризованным(нужно параметризовать весь класс)
     <T extends Number> GenCons(T arg) {
-        val = arg.doubleValue();
+        val = arg.doubleValue(); //просто присвой значние полю типа Т
     }
 
     public <T extends Number> boolean strEqual(T arg) {
