@@ -1,26 +1,29 @@
 package com.academy.belousova.lesson9;
 
-import com.academy.belousova.lesson7.Document;
+public class GenCons<T> {
+    private T val;
 
-import java.util.Objects;
-
-public class GenCons {
-    private double val;
-    <T extends Number> GenCons(T arg) {
-        val = arg.doubleValue();
+    public <V extends Number> GenCons(T val) {
+        this.val = val;
     }
 
-    public <T extends Number> boolean strEqual(T arg) {
-        int str1 = Double.toString(val).length();
-        int str2 = arg.toString().length();
-        return str1 == str2;
+    public <V extends Number> boolean strEqual(T value) {
+        int str1 = val.toString().length();
+        int str2 = value.toString().length();
+        System.out.println(str1);
+        System.out.println(str2);
+        if (str1 == str2) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public double getVal() {
+    public T getVal() {
         return val;
     }
 
-    public void setVal(double val) {
+    public void setVal(T val) {
         this.val = val;
     }
 }
