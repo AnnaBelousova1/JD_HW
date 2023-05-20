@@ -12,11 +12,7 @@ public class GenCons<T> {
         int str2 = value.toString().length();
         System.out.println(str1);
         System.out.println(str2);
-        if (str1 == str2) {
-            return true;
-        } else {
-            return false;
-        }
+        return str1 == str2;
     }
 
     public T getVal() {
