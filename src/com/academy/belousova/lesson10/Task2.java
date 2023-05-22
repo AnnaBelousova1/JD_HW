@@ -33,7 +33,7 @@ public class Task2 {
                 System.out.println("перехвачено исключение " + e.getClass());
             }
 
-        } while (!Objects.equals(s, "END"));
+        } while (!Objects.equals(s, "END")); //Если ввести END то выбрасывается исключение. такого быть не должно, ведь это корректная работа программы.
     }
 }
 
