@@ -8,7 +8,7 @@ import java.util.*;
  removeAll(Collection<?> c) , toString()  интерфейса Set<T> (реализация остальных – фиктивная).
  */
 
-public class MySet<T> implements List<T> {
+public class MySet<T> implements List<T> {//MySet должен имплементировать интерфейс Set<>
 
     private T[] elements = (T[]) new Object[]{};
     private int size;

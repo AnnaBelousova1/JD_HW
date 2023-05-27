@@ -11,7 +11,7 @@ public class Task2 {
         while (true) {
             String s = scanner.nextLine();
 
-            if (s.equals("end")) {
+            if (s.equals("end")) { //в задании: без учета регистра
                 break;
             } else {
                 list.add(s);

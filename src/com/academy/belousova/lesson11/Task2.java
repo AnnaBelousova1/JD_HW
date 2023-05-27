@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class Task2 {
     public static void main(String[] args) {
-        Set<String> set = new HashSet<>();
+        Set<String> set = new HashSet<>(); //Почему HashSet? Конечно эти методы будут прекрасно работать, если вызвать их на классе, описанном в JDK :)
         set.add("Welcome");
         set.add("To");
         set.add("Home");

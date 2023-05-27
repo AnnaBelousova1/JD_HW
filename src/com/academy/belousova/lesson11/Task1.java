@@ -20,7 +20,7 @@ public class Task1 {
         System.out.println(list.size());
         System.out.println(list);
 
-        boolean b = Collections.addAll(list, "1", "2", "3");
+        boolean b = Collections.addAll(list, "1", "2", "3"); //addAll должен проверяться на твоем объкте list.addAll().
         System.out.println("result: " + b);
         System.out.println("list after operation: " + list);
     }

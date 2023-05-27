@@ -10,6 +10,9 @@ public class Task1 {
         Set<Integer> setA = new HashSet<>(Arrays.asList(1, 2, 3, 4));
         Set<Integer> setB = new TreeSet<>(Arrays.asList(3, 4, 5, 6));
 
+        /*
+        В задании сказано: Создайте методы для определения пересечения множеств getCross и объединения множеств getUnion.
+         */
         System.out.println("setA: " + setA);
         System.out.println("setB: " + setB);
 
