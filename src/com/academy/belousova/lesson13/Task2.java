@@ -11,7 +11,7 @@ public class Task2 {
         map.put("28-05-2023", new Notepad.Note("Петров"));
         map.put("13-05-2023", new Notepad.Note("Иванов"));
         map.put("03-05-2023", new Notepad.Note("Сидоров"));
-
+        map.put("28-01-2022", new Notepad.Note("Сидоров")); // а если такую дату добавить, то правильно отсортируется?
 
         Notepad noteApp = new Notepad();
         noteApp.addNote("10-05-2023", "Иванов", map);
