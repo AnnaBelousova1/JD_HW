@@ -8,7 +8,7 @@ import java.util.*;
  removeAll(Collection<?> c) , toString()  интерфейса Set<T> (реализация остальных – фиктивная).
  */
 
-public class MySet<T> implements List<T> {
+public class MySet<T> implements Set<T> {
 
     private T[] elements = (T[]) new Object[]{};
     private int size;
@@ -59,14 +59,6 @@ public class MySet<T> implements List<T> {
         return false;
     }
 
-    @Override
-    // Проверяет, содержится ли элемент в множестве.
-    // Возвращает true, если элемент присутствует, и false, если его нет.
-    public boolean contains(Object o) {
-        return indexOf(o) >= 0;
-    }
-
-    @Override
     // возвращает количество элементов в множестве.
     public int size() {
         return this.size;
@@ -76,40 +68,67 @@ public class MySet<T> implements List<T> {
     // Проверка наличия элементов. Возвращает true, если множество не содержит элементов,
     // и false, если множество содержит хотя бы один элемент.
     public boolean isEmpty() {
-        return size == 0;
+        int nullCount = 0;
+        for (T element : elements) {
+            if (element == null) {
+                nullCount++;
+                if (nullCount == elements.length) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    @Override
+    // Проверяет, содержится ли элемент в множестве.
+    // Возвращает true, если элемент присутствует, и false, если его нет.
+    public boolean contains(Object o) {
+        for (int i = 0; i < elements.length; i++) {
+            if (((T) o).equals(elements[i])) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
     // Добавляет все элементы из коллекции c в данную коллекцию.
     public boolean addAll(Collection<? extends T> c) {
-        if (c == null) {
+        if (c.size() == 0) {
             return false;
         }
-        if (c.isEmpty()) {
-            return false;
+
+        T[] addElements = (T[]) c.toArray();
+
+        int capacity = elements.length;
+        int newCapacity = size + addElements.length;
+
+        if (capacity < newCapacity) {
+            elements = Arrays.copyOf(elements, size + addElements.length);
         }
-        for (Object element : c) {
-            add((T) element);
+        for (int i = 0; i < addElements.length; i++) {
+            elements[i + size] = addElements[i];
         }
+        size += addElements.length;
         return true;
     }
+
 
     @Override
     // Проверяет, содержит ли коллекция все элементы из заданной коллекции c.
     // Возвращает true, если все элементы содержатся в наборе.
     public boolean containsAll(Collection<?> c) {
-        if (c == null) {
+        if (c.size() == 0) {
             return false;
         }
-        if (c.size() == 0) {
-            return true;
-        }
-        for (Object e : c) {
-            if (contains(e)) {
-                ;
-            } else {
+
+        T[] containElements = (T[]) c.toArray();
+        for (int i = 0; i < containElements.length; i++) {
+            if (!contains(containElements[i])) {
                 return false;
             }
+            ;
         }
         return true;
     }
@@ -156,17 +175,16 @@ public class MySet<T> implements List<T> {
 
     @Override
     public Object[] toArray() {
-        return new Object[0];
+        Object[] toReturn = new Object[size];
+        for (int i = 0; i < size; i++) {
+            toReturn[i] = elements[i];
+        }
+        return toReturn;
     }
 
     @Override
     public <T1> T1[] toArray(T1[] a) {
         return null;
-    }
-
-    @Override
-    public boolean addAll(int index, Collection<? extends T> c) {
-        return false;
     }
 
     @Override
@@ -180,47 +198,7 @@ public class MySet<T> implements List<T> {
     }
 
     @Override
-    public T get(int index) {
-        return null;
-    }
-
-    @Override
-    public T set(int index, T element) {
-        return null;
-    }
-
-    @Override
-    public void add(int index, T element) {
-
-    }
-
-    @Override
-    public T remove(int index) {
-        return null;
-    }
-
-    @Override
-    public int indexOf(Object o) {
-        return 0;
-    }
-
-    @Override
-    public int lastIndexOf(Object o) {
-        return 0;
-    }
-
-    @Override
-    public ListIterator<T> listIterator() {
-        return null;
-    }
-
-    @Override
-    public ListIterator<T> listIterator(int index) {
-        return null;
-    }
-
-    @Override
-    public List<T> subList(int fromIndex, int toIndex) {
-        return null;
+    public Spliterator<T> spliterator() {
+        return Set.super.spliterator();
     }
 }

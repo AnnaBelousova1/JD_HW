@@ -1,6 +1,5 @@
 package com.academy.belousova.lesson11;
 
-import java.util.Collections;
 import java.util.List;
 
 public class Task1 {
@@ -20,8 +19,13 @@ public class Task1 {
         System.out.println(list.size());
         System.out.println(list);
 
-        boolean b = Collections.addAll(list, "1", "2", "3");
-        System.out.println("result: " + b);
+        List<String> list2 = new MyList<>();
+        list2.add("1");
+        list2.add("2");
+        list2.add("3");
+
+        System.out.println(list2);
+        System.out.println(list.addAll(list2));
         System.out.println("list after operation: " + list);
     }
 }

@@ -90,15 +90,23 @@ public class MyList<T> implements List<T> {
 
     @Override
     public boolean addAll(Collection<? extends T> c) {
-        if (c == null) {
+        if (c.size() == 0) {
             return false;
         }
-        if (c.isEmpty()) {
-            return false;
+
+        T[] addElements = (T[]) c.toArray();
+
+        int capacity = elements.length;
+        int newCapacity = size + addElements.length;
+
+        if (capacity < newCapacity) {
+            elements = Arrays.copyOf(elements, size + addElements.length);
         }
-        for (Object element : c) {
-            add((T) element);
+
+        for (int i = 0; i < addElements.length; i++) {
+            elements[i + size] = addElements[i];
         }
+        size = size + addElements.length;
         return true;
     }
 
@@ -127,7 +135,11 @@ public class MyList<T> implements List<T> {
 
     @Override
     public Object[] toArray() {
-        return new Object[0];
+        Object[] toReturn = new Object[size];
+        for (int i = 0; i < size; i++) {
+            toReturn[i] = elements[i];
+        }
+        return toReturn;
     }
 
     @Override

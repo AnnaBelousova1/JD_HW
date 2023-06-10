@@ -13,13 +13,18 @@ public class Task1 {
         System.out.println("setA: " + setA);
         System.out.println("setB: " + setB);
 
-        Set<Integer> result = new HashSet<>(setA);
-        result.retainAll(setB);
-        System.out.println("Пересечение: " + result);
+        System.out.println("Пересечение: " + getCross(setA, setB));
+        System.out.println("Объединение: " + getUnion(setA, setB));
+    }
+    public static <T> Set<T> getCross(Set<T> setA, Set<T> setB) {
+        Set<T> setC = new HashSet<>(setA);
+        setC.retainAll(setB);
+        return setC;
+    }
 
-        result.addAll(setA);
-        result.addAll(setB);
-        System.out.println("Объединение: " + result);
-
+    public static <T> Set<T> getUnion(Set<T> setA, Set<T> setB) {
+        Set<T> setC = new HashSet<>(setA);
+        setC.addAll(setB);
+        return setC;
     }
 }

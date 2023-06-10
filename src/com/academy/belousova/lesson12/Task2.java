@@ -11,7 +11,7 @@ public class Task2 {
         while (true) {
             String s = scanner.nextLine();
 
-            if (s.equals("end")) {
+            if (s.equalsIgnoreCase("end")) {
                 break;
             } else {
                 list.add(s);
