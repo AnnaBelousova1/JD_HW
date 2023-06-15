@@ -19,7 +19,7 @@ public class Counter extends Thread {
         synchronized (MONITOR) {
             try {
                 System.out.println(getName() + " увеличил счетчик до " + (++count));
-                MONITOR.wait();
+                MONITOR.wait(); //wait и notify в этом задании не нужны. все намного проще. обычный инкрементер, просто с синхронизацией досупа к полю
                 System.out.println(getName() + " снова увеличил счетчик до " + (++count));
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);

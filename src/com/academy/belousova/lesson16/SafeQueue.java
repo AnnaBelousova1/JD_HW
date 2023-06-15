@@ -1,6 +1,6 @@
 package com.academy.belousova.lesson16;
 
-public class SafeQueue<V> extends Thread {
+public class SafeQueue<V> extends Thread { //тебе не нужно было создавать свою очередь :( нужно было просто создать поле с очередью и синхронизировать методы для работы с этой очередью. По сути то же, что сделано в QueueContainer
     private V[] items;      // массив для хранения элементов queue
     private int front;      // front указывает на передний элемент в queue
     private int rear;       // задняя часть указывает на последний элемент в queue
