@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 
 public class QueueContainer {
-    private static final Queue<Buyer> queue = new ArrayDeque<>();
+    private static final Queue<Buyer> queue = new ArrayDeque<>();//ты убрала синхронизацию и все. сделала очередь потокопасной. нужно заменить реализацию очереди на потокобезовасную
 
     private static int counter = 0;
 

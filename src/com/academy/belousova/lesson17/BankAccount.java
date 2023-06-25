@@ -3,9 +3,9 @@ package com.academy.belousova.lesson17;
 import java.util.concurrent.CountDownLatch;
 
 public class BankAccount implements Runnable {
-    private static double balance;
+    private static double balance; //синхронизации нет никакой, при большом количестве запусков рано или поздно будут проблемы из-за конкурнетного доступа. потоки будут
 
-    private static final CountDownLatch start = new CountDownLatch(2);
+    private static final CountDownLatch start = new CountDownLatch(2);//защелки не нужны, нету у нас в этой ДЗ заданий на использование защелок
     private static final CountDownLatch finish = new CountDownLatch(2);
 
     @Override

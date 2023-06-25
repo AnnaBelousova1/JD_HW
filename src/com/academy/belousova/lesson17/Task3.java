@@ -9,15 +9,15 @@ public class Task3 {
         try {
             executor = Executors.newFixedThreadPool(2);
             for (int i = 0; i < 2; i++) {
-                executor.execute(new BankAccount(100));
+                executor.execute(new BankAccount(100)); //потоки созданы, но метод run не меняет баланс
                 System.out.println("__________________________________");
             }
 
             for (int i = 0; i < 200; i++) {
-                BankAccount.deposit(100);
+                BankAccount.deposit(100);//это просто последовательный вызов статических методов. нужно вызывать их в запущенных потоках
             }
             for (int i = 0; i < 100; i++) {
-                BankAccount.withdraw(200);
+                BankAccount.withdraw(200); //это просто последовательный вызов статических методов. нужно вызывать их в запущенных потоках
             }
 
         } finally {

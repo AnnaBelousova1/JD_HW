@@ -7,8 +7,8 @@ import java.util.concurrent.CountDownLatch;
 public class SafeQueue<V> implements Runnable {
 
     private static int size;
-    private static Queue<Object> queue = new ArrayDeque<>();
-    private static final CountDownLatch start = new CountDownLatch(2);
+    private static Queue<Object> queue = new ArrayDeque<>(); //Смысл этого задания - просто заменить потокоопасную очередь на потокобезопасную
+    private static final CountDownLatch start = new CountDownLatch(2); //не нужны они тут
     private static final CountDownLatch finish = new CountDownLatch(2);
 
 
@@ -54,7 +54,7 @@ public class SafeQueue<V> implements Runnable {
             System.out.println("Очередь заполнена");
         }
 
-        V qt = (V) queue.peek();
+        V qt = (V) queue.peek(); //синхронизации нет. это опасные с точки зрения доступа к ресурсу действия
         queue.remove(qt);
         System.out.println("Элемент " + qt + " извлечен");
         return (V) queue;
