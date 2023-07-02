@@ -15,7 +15,8 @@ public class Task1 {
 
     }
 
-    public static boolean isDateOdd(String date) {
+    public static boolean isDateOdd(String date) { //не верно поняла задание. нужно высчитать количество дней не в году, а с начала года.
+        //т.е. пользователь вводит например 1 июля 2023 - значит нужно посчитать количество дней с 1.01.2023 по 1.07.2023 и сказать четное это число или нет
 
         DateTimeFormatter formatter = new DateTimeFormatterBuilder()
                 .parseCaseInsensitive()
