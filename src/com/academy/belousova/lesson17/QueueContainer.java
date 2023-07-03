@@ -1,26 +1,25 @@
 package com.academy.belousova.lesson17;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class QueueContainer {
-    private static final Queue<Buyer> queue = new ArrayDeque<>();
-
-    private static int counter = 0;
+    private static AtomicInteger counter = new AtomicInteger(0);
+    static final LinkedBlockingQueue<Buyer> que = new LinkedBlockingQueue<>();
 
     public static void addBuyer(Buyer buyer) {
-            queue.add(buyer);
+        que.add(buyer);
     }
 
     public static Buyer removeBuyer() {
-            return queue.poll();
+        return que.poll();
     }
 
-    public static  void incrementCounter() {
-        counter++;
+    public static void incrementCounter() {
+        counter.incrementAndGet();
     }
 
-    public static  boolean isServiceNeeded() {
-        return counter <= Task4.BUYERS_TO_SERVE;
+    public static boolean isServiceNeeded() {
+        return counter.get() <= Task4.BUYERS_TO_SERVE;
     }
 }

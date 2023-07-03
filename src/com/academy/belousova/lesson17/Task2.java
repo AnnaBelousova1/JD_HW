@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-
+import static java.lang.Thread.sleep;
 public class Task2 {
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
@@ -18,31 +18,43 @@ public class Task2 {
         try {
             executor = Executors.newFixedThreadPool(2);
             for (int i = 0; i < 2; i++) {
-                executor.execute(new SafeQueue<>(8));
-            }
+                executor.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        for (String s : list) {
+                            SafeQueue.enqueue(s);
+                        }
+                    }
+                });
 
-            for (int i = 0; i < 2; i++) {
-                for (String s : list) {
-                    SafeQueue.enqueue(s);
-                }
-            }
+                executor.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        for (String s : list) {
 
-            for (int i = 0; i < 4; i++) {
-                SafeQueue.dequeue();
+                            try {
+                                sleep(200);
+                            } catch (InterruptedException e) {
+                                throw new RuntimeException(e);
+                            }
+
+                            SafeQueue.dequeue();
+                        }
+                    }
+                });
             }
 
         } finally {
             if (executor != null) {
                 executor.shutdown();
             }
-        }
 
-        try {
-            executor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            try {
+                executor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            System.out.println("Все задачи выполнены");
         }
-        System.out.println("Все задачи выполнены");
     }
 }
-

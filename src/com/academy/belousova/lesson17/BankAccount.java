@@ -1,52 +1,37 @@
 package com.academy.belousova.lesson17;
 
-import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.atomic.AtomicInteger;
 
-public class BankAccount implements Runnable {
-    private static double balance;
+public class BankAccount {
+    private AtomicInteger balance;
 
-    private static final CountDownLatch start = new CountDownLatch(2);
-    private static final CountDownLatch finish = new CountDownLatch(2);
+    public BankAccount(AtomicInteger balance) {
+        this.balance = balance;
+        System.out.println("Начальный баланс: " + balance);
+    }
 
-    @Override
-    public void run() {
+    public void withdraw(int amount) {
 
-        try {
-            start.countDown();
-            start.await();
-            System.out.println(Thread.currentThread().getName() + " стартовал");
-            Thread.sleep(Math.round(Math.random() * 1000));
-            System.out.println(Thread.currentThread().getName() + " финишировал");
-            finish.countDown();
-            finish.await();
-            System.out.println(Thread.currentThread().getName() + " завершился");
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+        int current = balance.get();
+        int newValue = current - amount;
+        while (!balance.compareAndSet(current, newValue)) {
+            current = balance.get();
+            newValue = current - amount;
         }
+        System.out.println("Списано " + amount + ", текущий баланс " + getBalance());
     }
 
-    public BankAccount(double balance) {
-        BankAccount.balance = balance;
-        System.out.println("Начальный баланс: " + getBalance());
+    public void deposit(int amount) {
+        balance.addAndGet(amount);
+        System.out.println("Зачислено " + amount + ", текущий баланс " + getBalance());
     }
 
-    public static void withdraw(double amount) {
-        double newBalance = balance - amount;
-        balance = newBalance;
-        System.out.println("Баланс после списания: " + newBalance);
-    }
-
-    public static void deposit(double amount) {
-        double newBalance = balance + amount;
-        balance = newBalance;
-        System.out.println("Баланс после зачисления: " + newBalance);
-    }
-
-    public static double getBalance() {
+    public AtomicInteger getBalance() {
         return balance;
     }
 
-    public static void setBalance(double balance) {
-        BankAccount.balance = balance;
+    @Override
+    public String toString() {
+        return String.valueOf(balance);
     }
 }
