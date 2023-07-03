@@ -8,7 +8,7 @@ public class Notepad {
     private String date;
 
 
-    public Notepad(String date) {
+    public Notepad(String date) { //конструктор описан, но нигде и ни откуда не вызывается
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
         try {
              Date dt = format.parse(this.date);
