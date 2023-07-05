@@ -10,8 +10,10 @@ public class Task1 {
     public static void main(String[] args) throws ParseException {
 
         isDateOdd("JANUARY 1 2000");
-        isDateOdd("JANUARY 1 2020");
-        isDateOdd("JANUARY 1 2022");
+        isDateOdd("JANUARY 2 2020");
+        isDateOdd("APRIL 6 2023");
+        isDateOdd("JUNE 19 2022");
+        isDateOdd("NOVEMBER 25 2021");
 
     }
 
@@ -23,14 +25,16 @@ public class Task1 {
                 .toFormatter(Locale.ENGLISH);
         LocalDate localDate = LocalDate.parse(date, formatter);
         System.out.println("localDate: " + localDate);
-        System.out.println("localDate.lengthOfYear(): " + localDate.lengthOfYear());
 
-        if (localDate.lengthOfYear() % 2 == 0) {
+        int dayOfYear = localDate.getDayOfYear();
+        if (dayOfYear % 2 == 0){
+            System.out.println("С начала года прошло " +  dayOfYear + " дн. (четное количество)");
             System.out.println(date + " = false\n");
-            return false;
-        } else {
-            System.out.println(date + " = true\n");
             return true;
+        } else {
+            System.out.println("С начала года прошло " +  dayOfYear + " дн. (нечетное количество)");
+            System.out.println(date + " = true\n");
+            return false;
         }
     }
 }
