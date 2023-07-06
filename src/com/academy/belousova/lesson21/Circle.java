@@ -21,4 +21,15 @@ public class Circle implements Shape {
     public double getArea() {
         return Math.PI * radius * radius;
     }
+
+    public static void describe() {
+        System.out.println("Круг");
+
+        System.out.println("Введите радиус");
+        Scanner scanner = new Scanner(System.in);
+        int radius = scanner.nextInt();
+        Circle circle = new Circle(radius);
+        ShapeFactory.getArea(circle);
+
+    }
 }
