@@ -11,17 +11,19 @@ public class Square implements Shape {
 
     @Override
     public double getArea() {
-        return side * side;
+        double area = side * side;
+        System.out.println("Площадь фигуры - равна:");
+        return area;
     }
 
-    public static void describe() {
+    @Override
+    public Shape describe() {
         System.out.println("Квадрат");
 
         System.out.println("Введите сторону");
         Scanner scanner = new Scanner(System.in);
         int side = scanner.nextInt();
         Square square = new Square(side);
-        ShapeFactory.getArea(square);
-
+        return square;
     }
 }

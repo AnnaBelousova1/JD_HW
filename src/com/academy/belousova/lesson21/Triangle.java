@@ -13,10 +13,13 @@ public class Triangle implements Shape {
 
     @Override
     public double getArea() {
-        return base * height / 2.0;
+        double area = base * height / 2.0;
+        System.out.println("Площадь фигуры - равна:");
+        return area;
     }
 
-    public static void describe() {
+    @Override
+    public Shape describe() {
         System.out.println("Треугольник");
 
         System.out.println("Введите основание и высоту");
@@ -24,7 +27,7 @@ public class Triangle implements Shape {
         int base = scanner.nextInt();
         int height = scanner.nextInt();
         Triangle triangle = new Triangle(base, height);
-        ShapeFactory.getArea(triangle);
+        return triangle;
 
     }
 }

@@ -19,17 +19,20 @@ public class Circle implements Shape {
 
     @Override
     public double getArea() {
-        return Math.PI * radius * radius;
+        double area = Math.PI * radius * radius;
+        System.out.println("Площадь фигуры - равна:");
+        return area;
     }
 
-    public static void describe() {
+    @Override
+    public Shape describe() {
         System.out.println("Круг");
 
         System.out.println("Введите радиус");
         Scanner scanner = new Scanner(System.in);
         int radius = scanner.nextInt();
         Circle circle = new Circle(radius);
-        ShapeFactory.getArea(circle);
+        return circle;
 
     }
 }
