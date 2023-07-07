@@ -23,7 +23,7 @@ public class ShapeFactory {
         } else if (number == 3) {
             shape = new Circle(radius);
         } else {
-            throw new NullPointerException("Вы ввели неверные данные");
+            throw new NullPointerException("Вы ввели неверные данные"); //NullPointer - это отсутвие ссылки на объект. лучше использовать IllegalArgumentException
         }
         return shape;
     }

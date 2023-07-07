@@ -31,7 +31,7 @@ public class Circle implements Shape {
         System.out.println("Введите радиус");
         Scanner scanner = new Scanner(System.in);
         int radius = scanner.nextInt();
-        Circle circle = new Circle(radius);
+        Circle circle = new Circle(radius);  //зачем ты создаешь новый объект? засетай поля в этот и верни this
         return circle;
 
     }
