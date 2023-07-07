@@ -26,7 +26,7 @@ public class Triangle implements Shape {
         Scanner scanner = new Scanner(System.in);
         int base = scanner.nextInt();
         int height = scanner.nextInt();
-        Triangle triangle = new Triangle(base, height);
+        Triangle triangle = new Triangle(base, height);  //зачем ты создаешь новый объект? засетай поля в этот и верни this
         return triangle;
 
     }

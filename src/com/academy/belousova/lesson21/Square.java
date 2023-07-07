@@ -23,7 +23,7 @@ public class Square implements Shape {
         System.out.println("Введите сторону");
         Scanner scanner = new Scanner(System.in);
         int side = scanner.nextInt();
-        Square square = new Square(side);
+        Square square = new Square(side);   //зачем ты создаешь новый объект? засетай поля в этот и верни this
         return square;
     }
 }

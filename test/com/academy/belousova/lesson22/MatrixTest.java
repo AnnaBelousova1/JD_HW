@@ -82,6 +82,9 @@ class MatrixTest {
         Matrix matrix2 = new Matrix(5, 6);
         Matrix.add(matrix1, matrix2);
 
+        /*так ты проверяешь выброс исключения и лябдой тут же бросаешь исклюение :)
+конечно такой тест будет работать, вот только он ничего не тестирует.
+ */
         NullPointerException exception = assertThrows(
                 NullPointerException.class,
                 () -> {
@@ -103,7 +106,7 @@ class MatrixTest {
         ArrayIndexOutOfBoundsException exception = assertThrows(
                 ArrayIndexOutOfBoundsException.class,
                 () -> {
-                    throw new  ArrayIndexOutOfBoundsException("a message");
+                    throw new  ArrayIndexOutOfBoundsException("a message"); //то же самое
                 }
         );
 
