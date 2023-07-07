@@ -3,7 +3,7 @@ package com.academy.belousova.lesson22;
 import java.util.Scanner;
 
 public class Task2 {
-    public static void main(String[] args) throws IllegalAccessException {
+    public static void main(String[] args) throws IndexOutOfBoundsException {
         Student anna = new Student(1, "Anna", "Экономика", 3, 4525, 1995);
         Student viktor = new Student(2, "Viktor", "Юриспрюденция", 3, 4654, 2000);
         Student viki = new Student(3, "Viki", "Информатика", 5, 4585, 1985);

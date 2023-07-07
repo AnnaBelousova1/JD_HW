@@ -14,7 +14,7 @@ public class FractionTest {
     Fraction temp = new Fraction(0, 0);
 
     @Test
-    public void TestSum() {
+    public void testSum() {
 
         if (fraction1.getY() == fraction2.getY()) {
             temp.setX(fraction1.getX() + fraction2.getX());
@@ -29,28 +29,28 @@ public class FractionTest {
     }
 
     @Test
-    public void TestMul() {
+    public void testMul() {
 
         int expectedMul = 8 / 7;
         assertEquals(expectedMul, fraction1.getX() * value, fraction1.getY());
     }
 
     @Test
-    public void TestMulByZero() {
+    public void testMulByZero() {
 
         Fraction fraction3 = new Fraction(0, 8);
         assertThrows(ArithmeticException.class, () -> fraction3.mul(value));
     }
 
     @Test
-    public void TestDiv() {
+    public void testDiv() {
 
         int expectedDiv = 4 / 14;
         assertEquals(expectedDiv, fraction1.getX(), fraction1.getY() * value);
     }
 
     @Test
-    public void TestDivisionByZero() {
+    public void testDivisionByZero() {
 
         Fraction fraction4 = new Fraction(5, 0);
         assertThrows(ArithmeticException.class, () -> fraction4.div(value));

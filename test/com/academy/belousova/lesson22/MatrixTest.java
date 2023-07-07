@@ -21,7 +21,7 @@ class MatrixTest {
 
 
     @Test
-    public void TestAdd() {
+    public void testAdd() {
 
         for (int i = 0; i < matrix1.length; i++) {
             for (int j = 0; j < matrix2.length; j++) {
@@ -39,7 +39,7 @@ class MatrixTest {
     }
 
     @Test
-    public void TestMultiply() {
+    public void testMultiply() {
 
         for (int k = 0; k < mas.length; k++) {
             for (int l = 0; l < mas[k].length; l++) {
@@ -58,7 +58,7 @@ class MatrixTest {
 
 
     @Test
-    public void TestSubtract() {
+    public void testSubtract() {
 
         for (int k = 0; k < mas.length; k++) {
             for (int l = 0; l < mas[k].length; l++) {
@@ -76,38 +76,21 @@ class MatrixTest {
     }
 
     @Test
-    void TestNullException() {
+    void testNullException() {
 
         Matrix matrix1 = new Matrix(0, 6);
         Matrix matrix2 = new Matrix(5, 6);
-        Matrix.add(matrix1, matrix2);
 
-        NullPointerException exception = assertThrows(
-                NullPointerException.class,
-                () -> {
-                    throw new  NullPointerException("a message");
-                }
-        );
-
-        assertEquals("a message", exception.getMessage());
-
+        assertThrows(NullPointerException.class,()-> Matrix.add(matrix1, matrix2));
     }
 
     @Test
-    void TestException() {
+    void testException() {
 
         Matrix matrix1 = new Matrix(5, 6);
         Matrix matrix2 = new Matrix(4, 6);
-        Matrix.add(matrix1, matrix2);
 
-        ArrayIndexOutOfBoundsException exception = assertThrows(
-                ArrayIndexOutOfBoundsException.class,
-                () -> {
-                    throw new  ArrayIndexOutOfBoundsException("a message");
-                }
-        );
-
-        assertEquals("a message", exception.getMessage());
+        assertThrows(ArrayIndexOutOfBoundsException.class,()-> Matrix.add(matrix1, matrix2));
 
     }
 

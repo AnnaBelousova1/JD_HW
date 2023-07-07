@@ -19,16 +19,17 @@ public class Matrix {
         Matrix m = new Matrix(i.mas.length, j.mas.length);
 
         if (i.mas == null || i.mas.length == 0 || i.mas[0] == null || i.mas[0].length == 0) {
-            System.out.println("Матрица не может быть нулевой!");
-            return null;
+            throw new NullPointerException("Матрица не может быть нулевой!");
+
+
         }
         if (j.mas == null || j.mas.length == 0 || j.mas[0] == null || j.mas[0].length == 0) {
-            System.out.println("Матрица не может быть нулевой!");
-            return null;
+            throw new NullPointerException("Матрица не может быть нулевой!");
+
         }
         if (i.mas.length != j.mas.length || i.mas[0].length != j.mas[0].length) {
-            System.out.println("Число строк/столбцов двух матриц не соответствует!\nОперация не возможна!");
-            return null;
+            throw new ArrayIndexOutOfBoundsException("Число строк/столбцов двух матриц не соответствует!\nОперация не возможна!");
+
         } else {
             for (int k = 0; k < m.mas.length; k++) {
                 for (int l = 0; l < m.mas[k].length; l++) {
@@ -43,16 +44,13 @@ public class Matrix {
         Matrix m = new Matrix(i.mas.length, j.mas.length);
 
         if (i.mas == null || i.mas.length == 0 || i.mas[0] == null || i.mas[0].length == 0) {
-            System.out.println("Матрица не может быть нулевой!");
-            return null;
+            throw new NullPointerException("Матрица не может быть нулевой!");
         }
         if (j.mas == null || j.mas.length == 0 || j.mas[0] == null || j.mas[0].length == 0) {
-            System.out.println("Матрица не может быть нулевой!");
-            return null;
+            throw new NullPointerException("Матрица не может быть нулевой!");
         }
         if (i.mas.length != j.mas.length || i.mas[0].length != j.mas[0].length) {
-            System.out.println("Число строк/столбцов двух матриц не соответствует!\nОперация не возможна!");
-            return null;
+            throw new ArrayIndexOutOfBoundsException("Число строк/столбцов двух матриц не соответствует!\nОперация не возможна!");
         } else {
             for (int k = 0; k < m.mas.length; k++) {
                 for (int l = 0; l < m.mas[k].length; l++) {
@@ -68,16 +66,13 @@ public class Matrix {
         Matrix m = new Matrix(i.mas.length, j.mas.length);
 
         if (i.mas == null || i.mas.length == 0 || i.mas[0] == null || i.mas[0].length == 0) {
-            System.out.println("Матрица не может быть нулевой!");
-            return null;
+            throw new NullPointerException("Матрица не может быть нулевой!");
         }
         if (j.mas == null || j.mas.length == 0 || j.mas[0] == null || j.mas[0].length == 0) {
-            System.out.println("Матрица не может быть нулевой!");
-            return null;
+            throw new NullPointerException("Матрица не может быть нулевой!");
         }
         if (i.mas.length != j.mas.length || i.mas[0].length != j.mas[0].length) {
-            System.out.println("Число строк/столбцов двух матриц не соответствует!\nОперация не возможна!");
-            return null;
+            throw new ArrayIndexOutOfBoundsException("Число строк/столбцов двух матриц не соответствует!\nОперация не возможна!");
         } else {
             for (int k = 0; k < m.mas.length; k++) {
                 for (int l = 0; l < m.mas[k].length; l++) {
