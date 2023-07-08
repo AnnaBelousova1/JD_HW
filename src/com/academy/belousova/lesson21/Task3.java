@@ -13,7 +13,7 @@ public class Task3 {
         int number = scanner.nextInt();
 
         if (number == 1) {
-            tea = new MilkDecorator(new SugarDecorator(new SyrupDecorator(new Tea())));
+            tea = new MilkDecorator(new SugarDecorator(new SyrupDecorator(new Tea()))); // а если я хочу чай с сахаром, но без молока? должны поддерживаться все комбинации
             tea.make();
 
         }
